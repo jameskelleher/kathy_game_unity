@@ -10,7 +10,10 @@ public class PhotonConnect : MonoBehaviourPunCallbacks {
     private byte maxPlayersPerRoom = 4;
     public GameObject sectionView1, sectionView2, sectionView3;
 
-    public void connectToPhoton () {
+    public void connectToPhoton (int outfit_ix) {
+
+        GlobalController.Instance.outfit_ix = outfit_ix;
+        
         PhotonNetwork.ConnectUsingSettings ();
 
         Debug.Log ("connecting to photon...");
