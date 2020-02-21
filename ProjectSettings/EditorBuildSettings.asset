@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: a47cd4f3a96f049faa9c29edf5b03372
   - enabled: 1
-    path: Assets/Scenes/Main 2.unity
+    path: Assets/Scenes/Joose.unity
     guid: 4232e393ee64c424c8e7f8904f67ad1e
   m_configObjects: {}

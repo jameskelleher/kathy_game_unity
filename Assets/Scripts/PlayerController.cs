@@ -34,11 +34,13 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         animator = GetComponent<Animator> ();
 
         if (photonView.IsMine) {
-            float randX = Random.Range (-4, 4);
-            float randY = Random.Range (-4, 4);
-            Vector3 startPos = new Vector3 (randX, randY, 0);
+            float x = GlobalController.Instance.spawnAtX;
+            float y = GlobalController.Instance.spawnAtY;
+            Vector3 startPos = new Vector3(x, y, 0f);
 
-            gameObject.transform.position = startPos;
+            this.gameObject.transform.position = startPos;
+
+            this.lastMove = GlobalController.Instance.lastMove;
 
             outfit_ix = GlobalController.Instance.outfit_ix;
         } else {
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             if (Input.GetKeyDown("space")) {
                 string thisScene = SceneManager.GetActiveScene().name;
                 if (thisScene == "Main") {
-                    PhotonNetwork.LoadLevel("Main 2");
+                    PhotonNetwork.LoadLevel("Joose");
                 } else {
                     PhotonNetwork.LoadLevel("Main");
                 }
