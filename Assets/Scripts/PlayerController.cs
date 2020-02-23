@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
     public GameObject[] outfits;
 
+    public GameObject body;
+
     private Vector3 pos;
 
     public float moveSpeed = 1f;
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
         animator = GetComponent<Animator> ();
 
-        if (photonView.IsMine) {
+        if (photonView.IsMine || !PhotonNetwork.IsConnected) {
             float x = GlobalController.Instance.spawnAtX;
             float y = GlobalController.Instance.spawnAtY;
             Vector3 startPos = new Vector3(x, y, 0f);
@@ -48,9 +50,13 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             outfit_ix = (int) data[0];
         }
 
+        GameObject body_inst = Instantiate(body, this.gameObject.transform.position, Quaternion.identity);
+        body_inst.transform.parent = this.transform;
+
         GameObject outfit = outfits[outfit_ix];
-        Vector3 outfit_position = new Vector3(transform.position.x, transform.position.y, -1f);
-        GameObject outfit_inst = Instantiate (outfit, outfit_position, Quaternion.identity);
+        Vector3 outfit_position = new Vector3(transform.position.x, transform.position.y, -0.00001f);
+
+        GameObject outfit_inst = Instantiate(outfit, outfit_position, Quaternion.identity);
         outfit_inst.transform.parent = this.transform;
 
         DontDestroyOnLoad(this.gameObject);
@@ -103,6 +109,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
             }
         }
+
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.y);
     }
 
     private void checkInput () {

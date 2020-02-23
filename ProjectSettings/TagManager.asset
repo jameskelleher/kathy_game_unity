@@ -44,11 +44,8 @@ TagManager:
   - name: Background
     uniqueID: 2414539345
     locked: 0
-  - name: Body
+  - name: Characters
     uniqueID: 4225901691
-    locked: 0
-  - name: Outfit
-    uniqueID: 2935050071
     locked: 0
   - name: Buildings
     uniqueID: 1302985551

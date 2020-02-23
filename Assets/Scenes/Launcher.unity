@@ -712,6 +712,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outfit_ix: 0
+  spawnAtX: 0
+  spawnAtY: 0
+  lastMove: {x: 0, y: 0}
 --- !u!4 &1104238803
 Transform:
   m_ObjectHideFlags: 0
