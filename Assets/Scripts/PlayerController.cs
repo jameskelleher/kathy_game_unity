@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         if (photonView.IsMine || !PhotonNetwork.IsConnected) {
             checkInput ();
 
-            if (Input.GetKeyDown("space")) {
+            if (Input.GetKeyDown("q")) {
                 string thisScene = SceneManager.GetActiveScene().name;
                 if (thisScene == "Main") {
                     PhotonNetwork.LoadLevel("Joose");
