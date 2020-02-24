@@ -21,28 +21,28 @@ public class NPCController : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other) {
         if (!other.CompareTag ("Player")) {
-        return;
+            return;
+        }
+
+        PhotonView pv = other.GetComponent<PhotonView> ();
+        if (!pv.IsMine && PhotonNetwork.IsConnected) {
+            return;
+        }
+
+        playerInTrigger = true;
     }
 
-    PhotonView pv = other.GetComponent<PhotonView> ();
-    if (!pv.IsMine && PhotonNetwork.IsConnected) {
-        return;
+    void OnTriggerExit2D (Collider2D other) {
+        if (!other.CompareTag ("Player")) {
+            return;
+        }
+
+        PhotonView pv = other.GetComponent<PhotonView> ();
+        if (!pv.IsMine && PhotonNetwork.IsConnected) {
+            return;
+        }
+
+        playerInTrigger = false;
     }
-
-    playerInTrigger = true;
-}
-
-void OnTriggerExit2D (Collider2D other) {
-    if (!other.CompareTag ("Player")) {
-        return;
-    }
-
-    PhotonView pv = other.GetComponent<PhotonView> ();
-    if (!pv.IsMine && PhotonNetwork.IsConnected) {
-        return;
-    }
-
-    playerInTrigger = false;
-}
 
 }
