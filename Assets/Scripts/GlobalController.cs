@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalController : MonoBehaviour {
 
@@ -18,14 +19,17 @@ public class GlobalController : MonoBehaviour {
     [HideInInspector]
     public Vector2 lastMove;
 
-    [HideInInspector]
     private AudioSource audioSource;
+
+    [HideInInspector]
+    public AudioClip clip;
 
     void Awake () {
         if (Instance == null) {
             DontDestroyOnLoad (gameObject);
             Instance = this;
             audioSource = GetComponent<AudioSource> ();
+            SceneManager.sceneLoaded += OnSceneLoaded;
 
         } else if (Instance != this) {
             Destroy (gameObject);
@@ -36,9 +40,14 @@ public class GlobalController : MonoBehaviour {
         spawnAtY = Random.Range (-3, 3);
     }
 
-    public void PlaySong(AudioClip clip) {
-        print("playing");
-        audioSource.clip = clip;
-        audioSource.Play();
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        print("scene loaded");
+        if (scene.name == "Club") {
+            print("playing music");
+            audioSource.clip = clip;
+            audioSource.Play();
+        } else {
+            audioSource.Stop();
+        }
     }
 }

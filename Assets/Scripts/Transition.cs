@@ -10,6 +10,7 @@ public class Transition : MonoBehaviour {
     public float spawnAtY;
     public float lastMoveX;
     public float lastMoveY;
+    public string loadLevel;
 
     void OnTriggerEnter2D (Collider2D other) {
         if (other.gameObject.tag == "Player") {
@@ -18,15 +19,9 @@ public class Transition : MonoBehaviour {
                 GlobalController.Instance.spawnAtX = spawnAtX;
                 GlobalController.Instance.spawnAtY = spawnAtY;
                 GlobalController.Instance.lastMove = new Vector2(lastMoveX, lastMoveY);
-                
-                string sceneName = SceneManager.GetActiveScene ().name;
-                if (sceneName == "Main") {
-                    PhotonNetwork.Destroy (other.gameObject);
-                    PhotonNetwork.LoadLevel ("Joose");
-                } else {
-                    PhotonNetwork.Destroy (other.gameObject);
-                    PhotonNetwork.LoadLevel ("Main");
-                }
+
+                PhotonNetwork.Destroy(other.gameObject);
+                PhotonNetwork.LoadLevel(loadLevel);
             }
         }
     }
