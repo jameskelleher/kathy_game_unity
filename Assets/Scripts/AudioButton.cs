@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AudioButton : MonoBehaviour {
     
-    public AudioClip clip;
+    public int clip_ix;
 
     public void SetAudio() {
         
         print("setting audio");
-        GlobalController.Instance.clip = clip;
+        GlobalController.Instance.clip_ix = clip_ix;
         this.gameObject.transform.parent.parent.gameObject.SetActive(false);
     }
 

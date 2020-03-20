@@ -21,8 +21,10 @@ public class GlobalController : MonoBehaviour {
 
     private AudioSource audioSource;
 
+    public AudioClip[] clips;
+
     [HideInInspector]
-    public AudioClip clip;
+    public int clip_ix = 0;
 
     void Awake () {
         if (Instance == null) {
@@ -44,7 +46,7 @@ public class GlobalController : MonoBehaviour {
         print("scene loaded");
         if (scene.name == "Club") {
             print("playing music");
-            audioSource.clip = clip;
+            audioSource.clip = clips[clip_ix];
             audioSource.Play();
         } else {
             audioSource.Stop();
