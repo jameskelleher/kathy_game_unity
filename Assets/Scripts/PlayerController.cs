@@ -6,22 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviourPun, IPunObservable {
 
-    public GameObject[] outfits;
+    [HideInInspector]
+    public string currentScene;
 
-    public GameObject body;
+    #region Movement
 
     private Vector3 pos;
 
-    public float moveSpeed = 1f;
+    public float moveSpeed = 3f;
     public float interpolationAmount = 4f;
 
     [HideInInspector]
     public int updatedFrames = 0;
     private int startUpdatingAt = 60;
+    #endregion
 
+    #region Animation
     private Animator animator;
-
-    #region Animation Parameters
 
     private float h;
     private float v;
@@ -31,42 +32,30 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     #endregion
 
     void Start () {
-        int outfit_ix;
 
         animator = GetComponent<Animator> ();
 
         if (photonView.IsMine || !PhotonNetwork.IsConnected) {
-            float x = GlobalController.Instance.spawnAtX;
-            float y = GlobalController.Instance.spawnAtY;
-            Vector3 startPos = new Vector3(x, y, 0f);
+
+            float x = GameManager.Instance.spawnAtX;
+            float y = GameManager.Instance.spawnAtY;
+            Vector3 startPos = new Vector3 (x, y, y);
 
             this.gameObject.transform.position = startPos;
 
-            this.lastMove = GlobalController.Instance.lastMove;
+            this.lastMove = GameManager.Instance.lastMove;
 
-            outfit_ix = GlobalController.Instance.outfit_ix;
-        } else {
-            object[] data = photonView.InstantiationData;
-            outfit_ix = (int) data[0];
         }
 
-        GameObject body_inst = Instantiate(body, this.gameObject.transform.position, Quaternion.identity);
-        body_inst.transform.parent = this.transform;
+        DontDestroyOnLoad (this.gameObject);
 
-        GameObject outfit = outfits[outfit_ix];
-        Vector3 outfit_position = new Vector3(transform.position.x, transform.position.y, -0.00001f);
+        // if player object created in a different scene, deactivate it
+        if (PhotonNetwork.IsConnected && !photonView.IsMine) {
+            string localPlayerscene = SceneManager.GetActiveScene ().name;
+            currentScene = (string) photonView.InstantiationData[0];
 
-        GameObject outfit_inst = Instantiate(outfit, outfit_position, Quaternion.identity);
-        outfit_inst.transform.parent = this.transform;
-
-        DontDestroyOnLoad(this.gameObject);
-
-        if (!photonView.IsMine) {
-            string thisScene = SceneManager.GetActiveScene().name;
-            string otherPlayerScene = (string) photonView.InstantiationData[1];
-
-            if (thisScene != otherPlayerScene) {
-                this.gameObject.SetActive(false);
+            if (currentScene != localPlayerscene) {
+                this.gameObject.SetActive (false);
             }
         }
     }
@@ -75,42 +64,21 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         if (photonView.IsMine || !PhotonNetwork.IsConnected) {
             checkInput ();
 
-            if (Input.GetKeyDown("q")) {
-                string thisScene = SceneManager.GetActiveScene().name;
-                if (thisScene == "Main") {
-                    PhotonNetwork.LoadLevel("Joose");
-                } else {
-                    PhotonNetwork.LoadLevel("Main");
-                }
-                PhotonNetwork.Destroy(gameObject);
-            }
+            // if (Input.GetKeyDown ("q")) {
+            //     string thisScene = SceneManager.GetActiveScene ().name;
+            //     if (thisScene == "Main") {
+            //         PhotonNetwork.LoadLevel ("Joose");
+            //     } else {
+            //         PhotonNetwork.LoadLevel ("Main");
+            //     }
+            //     PhotonNetwork.Destroy (gameObject);
+            // }
         } else if (!photonView.IsMine) {
-            if (updatedFrames < startUpdatingAt) {
-                updatedFrames++;
-            } else if (updatedFrames == startUpdatingAt) {
-                gameObject.transform.position = pos;
-                updatedFrames++;
-            } else {
-                gameObject.transform.position = Vector3.Lerp (gameObject.transform.position, pos, interpolationAmount * Time.deltaTime);
-                animator.SetFloat ("MoveX", h);
-                animator.SetFloat ("MoveY", v);
-                animator.SetFloat ("LastMoveX", lastMove.x);
-                animator.SetFloat ("LastMoveY", lastMove.y);
-                animator.SetBool ("PlayerMoving", playerMoving);
-
-                Animator[] child_animators = GetComponentsInChildren<Animator> ();
-                foreach (Animator anim in child_animators) {
-                    anim.SetFloat ("MoveX", h);
-                    anim.SetFloat ("MoveY", v);
-                    anim.SetFloat ("LastMoveX", lastMove.x);
-                    anim.SetFloat ("LastMoveY", lastMove.y);
-                    anim.SetBool ("PlayerMoving", playerMoving);
-                }
-
-            }
+            UpdateFromPhoton ();
         }
 
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.y);
+        // update z-depth
+        this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.y);
     }
 
     private void checkInput () {
@@ -132,21 +100,29 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             lastMove = new Vector2 (0f, v);
         }
 
+        UpdateAnimator ();
+
+    }
+
+    void UpdateFromPhoton () {
+        if (updatedFrames < startUpdatingAt) {
+            updatedFrames++;
+        } else if (updatedFrames == startUpdatingAt) {
+            gameObject.transform.position = pos;
+            updatedFrames++;
+        } else {
+            gameObject.transform.position = Vector3.Lerp (gameObject.transform.position, pos, interpolationAmount * Time.deltaTime);
+            UpdateAnimator ();
+
+        }
+    }
+
+    void UpdateAnimator () {
         animator.SetFloat ("MoveX", h);
         animator.SetFloat ("MoveY", v);
         animator.SetFloat ("LastMoveX", lastMove.x);
         animator.SetFloat ("LastMoveY", lastMove.y);
         animator.SetBool ("PlayerMoving", playerMoving);
-
-        Animator[] child_animators = GetComponentsInChildren<Animator> ();
-        foreach (Animator anim in child_animators) {
-            anim.SetFloat ("MoveX", h);
-            anim.SetFloat ("MoveY", v);
-            anim.SetFloat ("LastMoveX", lastMove.x);
-            anim.SetFloat ("LastMoveY", lastMove.y);
-            anim.SetBool ("PlayerMoving", playerMoving);
-        }
-
     }
 
     public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo messageInfo) {
@@ -165,5 +141,4 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         }
     }
 
-    // private void 
 }

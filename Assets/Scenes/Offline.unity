@@ -150,10 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe2b8de6886d4a0b9fa0c35d2486c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outfit_ix: 0
-  spawnAtX: 0
-  spawnAtY: 0
-  lastMove: {x: 0, y: 0}
 --- !u!4 &88170723
 Transform:
   m_ObjectHideFlags: 0
@@ -438,7 +434,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1302985551
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1807125615787039003, guid: 865b5f18456904a50b8e31fd72430ec2,
     type: 3}
@@ -796,6 +792,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0d85b6504e9d4057b4cac2e784ab93a, type: 3}
+--- !u!1001 &1317299289076037452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.203692
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.55701876
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107794, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107798, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317299289117107803, guid: 1afe356995a3242779b938975a3773b2,
+        type: 3}
+      propertyPath: m_Name
+      value: Lotta Chex
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1afe356995a3242779b938975a3773b2, type: 3}
 --- !u!1001 &2063484181342364709
 PrefabInstance:
   m_ObjectHideFlags: 0

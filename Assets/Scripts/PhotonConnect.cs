@@ -10,9 +10,9 @@ public class PhotonConnect : MonoBehaviourPunCallbacks {
     private byte maxPlayersPerRoom = 4;
     public GameObject sectionView1, sectionView2, sectionView3;
 
-    public void connectToPhoton (int outfit_ix) {
+    public void connectToPhoton (int char_ix) {
 
-        GlobalController.Instance.outfit_ix = outfit_ix;
+        GameManager.Instance.char_ix = char_ix;
         
         PhotonNetwork.ConnectUsingSettings ();
 
@@ -23,6 +23,7 @@ public class PhotonConnect : MonoBehaviourPunCallbacks {
         Debug.Log ("we are connected to master");
         sectionView1.SetActive (false);
         sectionView2.SetActive (true);
+        print("trying to join room");
         PhotonNetwork.JoinRandomRoom ();
     }
 

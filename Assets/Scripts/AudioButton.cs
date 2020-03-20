@@ -9,7 +9,8 @@ public class AudioButton : MonoBehaviour {
     public void SetAudio() {
         
         print("setting audio");
-        GlobalController.Instance.clip_ix = clip_ix;
+        GameManager.Instance.clip_ix = clip_ix;
+        // TODO: fix this mess
         this.gameObject.transform.parent.parent.gameObject.SetActive(false);
     }
 

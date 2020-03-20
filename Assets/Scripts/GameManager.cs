@@ -4,37 +4,98 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
-    public GameObject player;
+
+    [HideInInspector]
+    public static GameManager Instance;
 
     private string sceneName;
 
-    void Start () {
-        Vector3 startPos = new Vector3 (-100, -100, 0);
-        sceneName = SceneManager.GetActiveScene ().name;
-        object[] data = new object[] { GlobalController.Instance.outfit_ix, sceneName };
-        GameObject newPlayer = PhotonNetwork.Instantiate (player.name, startPos, Quaternion.identity, 0, data);
-        PlayerController[] playerControllers = Resources.FindObjectsOfTypeAll<PlayerController> ();
-        foreach (PlayerController playerController in playerControllers) {
-            PhotonView pv = playerController.photonView;
-            print(pv);
-            if (pv.IsMine || pv.InstantiationId == 0 || pv.InstantiationData == null) {
-                continue;
-            }
-            string playerSceneName = (string) pv.InstantiationData[1];
-            if (sceneName == playerSceneName) {
-                playerController.gameObject.transform.position = new Vector3(100f, 100f, 0f);
-                playerController.updatedFrames = 0;
-                playerController.gameObject.SetActive(true);
-            } else {
-                playerController.gameObject.SetActive(false);
-            }
+    #region Player
+    [HideInInspector]
+    public int char_ix;
+
+    public GameObject[] characters;
+
+    private GameObject player;
+
+    #endregion
+
+    #region Audio
+    public AudioClip[] clips;
+
+    [HideInInspector]
+    public int clip_ix = -1;
+
+    private AudioSource audioSource;
+
+    #endregion
+
+    #region Scene Transition Data
+
+    [HideInInspector]
+    public float spawnAtX;
+
+    [HideInInspector]
+    public float spawnAtY;
+
+    [HideInInspector]
+    public Vector2 lastMove;
+
+    #endregion
+
+    void Awake () {
+        if (Instance == null) {
+            DontDestroyOnLoad (gameObject);
+            Instance = this;
+            audioSource = GetComponent<AudioSource> ();
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
+        } else if (Instance != this) {
+            Destroy (gameObject);
         }
+
+        // initialize for random spawn point on main map
+        spawnAtX = Random.Range (-3, 0);
+        spawnAtY = Random.Range (-3, 0);
     }
 
-    IEnumerator activateProcedure (GameObject newPlayer) {
-        newPlayer.SetActive (false);
-        yield return new WaitForSeconds (1f);
-        newPlayer.SetActive (true);
+    void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
+        sceneName = SceneManager.GetActiveScene ().name;
+
+        print ("scene loaded");
+
+        if (scene.name == "Club" && clip_ix >= 0) {
+            print ("playing music");
+            audioSource.clip = clips[clip_ix];
+            audioSource.Play ();
+        } else {
+            audioSource.Stop ();
+        }
+
+        if (scene.name != "Launcher") {
+            Vector3 startPos = new Vector3 (-100, -100, 0);
+            object[] data = new object[] { sceneName };
+            player = PhotonNetwork.Instantiate (characters[char_ix].name, startPos, Quaternion.identity, 0, data);
+
+            // you only want to see other players if they are in the same scene
+            PlayerController[] playerControllers = Resources.FindObjectsOfTypeAll<PlayerController> ();
+            foreach (PlayerController playerController in playerControllers) {
+                PhotonView pv = playerController.photonView;
+                if (pv.IsMine || pv.InstantiationId == 0 || pv.InstantiationData == null) {
+                    continue;
+                }
+                string playerSceneName = playerController.currentScene;
+                if (sceneName == playerSceneName) {
+                    if (playerController.gameObject.activeInHierarchy == false) {
+                        playerController.gameObject.transform.position = new Vector3 (100f, 100f, 0f);
+                        playerController.updatedFrames = 0;
+                        playerController.gameObject.SetActive (true);
+                    }
+                } else {
+                    playerController.gameObject.SetActive (false);
+                }
+            }
+        }
     }
 
 }
