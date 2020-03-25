@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour {
     #region Audio
     public AudioClip[] clips;
 
-    [HideInInspector]
-    public int clip_ix = -1;
+    // [HideInInspector]
+    public int clip_ix;
 
     private AudioSource audioSource;
 
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     void Awake () {
+        clip_ix = -1;
         if (Instance == null) {
             DontDestroyOnLoad (gameObject);
             Instance = this;
@@ -62,10 +63,7 @@ public class GameManager : MonoBehaviour {
     void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         sceneName = SceneManager.GetActiveScene ().name;
 
-        print ("scene loaded");
-
         if (scene.name == "Club" && clip_ix >= 0) {
-            print ("playing music");
             audioSource.clip = clips[clip_ix];
             audioSource.Play ();
         } else {
