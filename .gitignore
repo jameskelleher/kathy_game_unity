@@ -49,3 +49,4 @@ Corridor/Library/metadata/
 # =============== #
 *.app/
 Builds*
+.vscode
