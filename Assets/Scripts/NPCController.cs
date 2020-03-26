@@ -15,6 +15,7 @@ public class NPCController : MonoBehaviour {
         this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.y);
 
         if (playerInTrigger && Input.GetKeyDown ("right shift")) {
+            GameManager.Instance.SetCanMove(false);
             choosePanel.SetActive (true);
         }
     }

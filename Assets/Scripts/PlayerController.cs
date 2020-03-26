@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     [HideInInspector]
     public string currentScene;
 
+    public GameObject emote;
+
     #region Movement
 
     private Vector3 pos;
@@ -82,8 +84,20 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     }
 
     private void checkInput () {
-        h = Input.GetAxisRaw ("Horizontal");
-        v = Input.GetAxisRaw ("Vertical");
+        if (GameManager.Instance.GetCanMove ()) {
+            h = Input.GetAxisRaw ("Horizontal");
+            v = Input.GetAxisRaw ("Vertical");
+
+            if (Input.GetKeyDown ("space") && emote) {
+                PhotonNetwork.Instantiate(emote.name, this.gameObject.transform.position, Quaternion.identity);
+                // Instantiate (emote, this.gameObject.transform.position, Quaternion.identity);
+            }
+
+        } else {
+            h = 0;
+            v = 0;
+
+        }
 
         playerMoving = false;
 
@@ -98,6 +112,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             transform.Translate (new Vector3 (0f, moveY, 0f));
             playerMoving = true;
             lastMove = new Vector2 (0f, v);
+
         }
 
         UpdateAnimator ();

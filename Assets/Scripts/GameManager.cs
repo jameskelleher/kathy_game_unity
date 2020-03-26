@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
 
     private GameObject player;
 
+    private bool canMove;
+
     #endregion
 
     #region Audio
@@ -44,7 +46,12 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     void Awake () {
+
+        // set clip_ix to -1 so no audio is played in club without choosing music
         clip_ix = -1;
+
+        canMove = true;
+
         if (Instance == null) {
             DontDestroyOnLoad (gameObject);
             Instance = this;
@@ -94,6 +101,13 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public bool GetCanMove () {
+        return canMove;
+    }
+    public void SetCanMove (bool canMove) {
+        this.canMove = canMove;
     }
 
 }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: button test
+  m_Name: Woofa Button Off
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -4639674748858986770, guid: 191fe66c695fc4ceb9449b78429c21db,
+      value: {fileID: -5760681616285217306, guid: 0e2ec2f9ce4d54769adf7f50ef4fc230,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,7 +41,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -4639674748858986770, guid: 191fe66c695fc4ceb9449b78429c21db, type: 3}
+    - {fileID: -5760681616285217306, guid: 0e2ec2f9ce4d54769adf7f50ef4fc230, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
