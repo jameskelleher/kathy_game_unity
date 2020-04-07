@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 8c238150179064f5ea39bed1a61e0644
+guid: 1f220b1cd047c40e69138409490345bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2671193058722930468
-    second: dance_floor_0
+      213: -8959365707278849826
+    second: table_0
   - first:
-      213: -5578686335110784431
-    second: dance_floor_1
+      213: -210461969047310286
+    second: table_1
   - first:
-      213: 2916756574420175922
-    second: dance_floor_2
+      213: -166081314601764794
+    second: bar
   - first:
-      213: 1758646266962862981
-    second: dance_floor_3
+      213: -3276818550891397900
+    second: chair_0
+  - first:
+      213: -5843582805192932918
+    second: chair_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dance_floor_0
+      name: table_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 115
-        width: 130
-        height: 98
+        x: 34
+        y: 69
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd0a450d0140eead0800000000000000
-      internalID: -2671193058722930468
+      spriteID: ed8e3d4ab50f9a380800000000000000
+      internalID: -8959365707278849826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dance_floor_1
+      name: table_1
       rect:
         serializedVersion: 2
-        x: 145
-        y: 115
-        width: 130
-        height: 98
+        x: 174
+        y: 69
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15a556ad5568492b0800000000000000
-      internalID: -5578686335110784431
+      spriteID: 230b43844f9441df0800000000000000
+      internalID: -210461969047310286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dance_floor_2
+      name: bar
       rect:
         serializedVersion: 2
-        x: 7
-        y: 11
-        width: 130
-        height: 98
+        x: 0
+        y: 134
+        width: 256
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,29 +169,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23c899a96a66a7820800000000000000
-      internalID: 2916756574420175922
+      spriteID: 648f45f9ce5f1bdf0800000000000000
+      internalID: -166081314601764794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dance_floor_3
+      name: chair_0
       rect:
         serializedVersion: 2
-        x: 145
-        y: 11
-        width: 130
-        height: 98
+        x: 16
+        y: 84
+        width: 17
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58363eb4677f76810800000000000000
-      internalID: 1758646266962862981
+      spriteID: 4fc35b8a3e66682d0800000000000000
+      internalID: -3276818550891397900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chair_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 84
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac105e8366c67eea0800000000000000
+      internalID: -5843582805192932918
       vertices: []
       indices: 
       edges: []
