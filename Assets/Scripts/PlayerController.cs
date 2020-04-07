@@ -47,6 +47,15 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
             this.lastMove = GameManager.Instance.lastMove;
 
+            GameObject MainCamera = GameObject.Find("Main Camera");
+            CameraController cameraController = MainCamera.GetComponent<CameraController>();
+            if (cameraController) {
+                cameraController.SetFollowTarget(this.gameObject);
+                Vector3 myPos = this.gameObject.transform.position;
+                float cameraZ = MainCamera.transform.position.z;
+                MainCamera.transform.position = new Vector3(myPos.x, myPos.y, cameraZ);
+            }
+
         }
 
         DontDestroyOnLoad (this.gameObject);

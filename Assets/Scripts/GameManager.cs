@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour {
     #region Scene Transition Data
 
     [HideInInspector]
+    private string spawnPointName;
+
     public float spawnAtX;
 
     [HideInInspector]
@@ -78,6 +80,13 @@ public class GameManager : MonoBehaviour {
         }
 
         if (scene.name != "Launcher") {
+            if (!string.IsNullOrEmpty(spawnPointName)) {
+                GameObject spawnPoint = GameObject.Find(spawnPointName);
+                spawnAtX = spawnPoint.transform.position.x;
+                spawnAtY = spawnPoint.transform.position.y;
+            }
+            // photon remembers the initial spawnpoint, so we have to spawn everyone offscreen,
+            // then update the position later
             Vector3 startPos = new Vector3 (-100, -100, 0);
             object[] data = new object[] { sceneName };
             player = PhotonNetwork.Instantiate (characters[char_ix].name, startPos, Quaternion.identity, 0, data);
@@ -110,6 +119,8 @@ public class GameManager : MonoBehaviour {
         this.canMove = canMove;
     }
 
-    
+    public void SetSpawnPointName(string spawnPointName) {
+        this.spawnPointName = spawnPointName;
+    }
 
 }
