@@ -39,14 +39,17 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
         if (photonView.IsMine || !PhotonNetwork.IsConnected) {
 
-            float x = GameManager.Instance.spawnAtX;
-            float y = GameManager.Instance.spawnAtY;
+            // set spawn position
+            Vector2 spawnPoint = GameManager.Instance.GetSpawnPoint();
+            float x = spawnPoint.x;
+            float y = spawnPoint.y;
             Vector3 startPos = new Vector3 (x, y, y);
-
             this.gameObject.transform.position = startPos;
 
+            // face the correct direction
             this.lastMove = GameManager.Instance.lastMove;
 
+            // set camera to follow, if it's a follow camera
             GameObject MainCamera = GameObject.Find("Main Camera");
             CameraController cameraController = MainCamera.GetComponent<CameraController>();
             if (cameraController) {

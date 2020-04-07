@@ -37,10 +37,9 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     private string spawnPointName;
 
-    public float spawnAtX;
+    float spawnAtX;
 
-    [HideInInspector]
-    public float spawnAtY;
+    float spawnAtY;
 
     [HideInInspector]
     public Vector2 lastMove;
@@ -65,7 +64,7 @@ public class GameManager : MonoBehaviour {
         }
 
         // initialize for random spawn point on main map
-        spawnAtX = Random.Range (-3, 0);
+        spawnAtX = -3;
         spawnAtY = Random.Range (-3, 0);
     }
 
@@ -117,6 +116,10 @@ public class GameManager : MonoBehaviour {
     }
     public void SetCanMove (bool canMove) {
         this.canMove = canMove;
+    }
+
+    public Vector2 GetSpawnPoint() {
+        return new Vector2(spawnAtX, spawnAtY);
     }
 
     public void SetSpawnPointName(string spawnPointName) {

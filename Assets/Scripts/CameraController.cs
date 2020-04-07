@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour {
     void Update () {
         if (followTarget) {
             Vector3 followPos = followTarget.transform.position;
-            this.targetPos = new Vector3(followPos.x, followPos.y, -10);
+            this.targetPos = new Vector3(followPos.x, followPos.y, this.transform.position.z);
             this.transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
         }
     }

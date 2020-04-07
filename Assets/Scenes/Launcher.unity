@@ -1207,6 +1207,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7797096752534842968, guid: 6e83e2de6401b4cc4afe0781c56b6aff,
+        type: 3}
+      propertyPath: clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 568e5861b96254f6f90fc5f2fa1f355e, type: 3}
+    - target: {fileID: 7797096752534842968, guid: 6e83e2de6401b4cc4afe0781c56b6aff,
+        type: 3}
+      propertyPath: clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95a00e4e32167451c91a620dfb47f42a, type: 3}
     - target: {fileID: 7797096752534842971, guid: 6e83e2de6401b4cc4afe0781c56b6aff,
         type: 3}
       propertyPath: m_LocalPosition.x
