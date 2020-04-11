@@ -12,12 +12,10 @@ public class AnimatedButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
     public void OnPointerEnter (PointerEventData eventData) {
-        print("playing");
         animator.SetBool ("MouseOver", true);
     }
 
     public void OnPointerExit (PointerEventData eventData) {
-        print("stopping");
         animator.SetBool("MouseOver", false);
     }
 
