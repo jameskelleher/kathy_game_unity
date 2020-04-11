@@ -710,8 +710,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1130926125}
   - component: {fileID: 1130926124}
+  - component: {fileID: 1130926126}
   - component: {fileID: 1130926123}
-  - component: {fileID: 1130926122}
+  - component: {fileID: 1130926127}
   - component: {fileID: 1130926121}
   m_Layer: 0
   m_Name: PIGEONFOUNTAIN
@@ -720,8 +721,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!68 &1130926121
-EdgeCollider2D:
+--- !u!70 &1130926121
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -730,47 +731,12 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -1.937887, y: -2.0266683}
-  - {x: -1.9395002, y: -1.0934523}
-  - {x: -1.7078451, y: -0.88641316}
-  - {x: -1.2234467, y: -0.7710422}
-  - {x: 1.4387856, y: -0.7982966}
-  - {x: 1.9407704, y: -1.0905939}
-  - {x: 1.9362218, y: -2.0803158}
-  - {x: 1.6899794, y: -2.2380257}
-  - {x: 1.1311294, y: -2.3993495}
-  - {x: 0.31631958, y: -2.4998987}
-  - {x: -0.34108305, y: -2.4936159}
-  - {x: -1.2381966, y: -2.3773756}
-  - {x: -1.7404102, y: -2.2116024}
-  - {x: -1.9357277, y: -2.0344586}
---- !u!50 &1130926122
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130926120}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Offset: {x: -0.0076605817, y: -1.6083205}
+  m_Size: {x: 5.3963757, y: 3.0697608}
+  m_Direction: 1
 --- !u!114 &1130926123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,7 +790,8 @@ SpriteRenderer:
   m_SortingLayerID: -69065605
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a0de952acf355406fa553113d3864a31, type: 3}
+  m_Sprite: {fileID: 6637060939563891213, guid: 929d26af403384e5e99fcf18d5350c6f,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -845,10 +812,42 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1760883360}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130926126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130926120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46eaf199021274e01b879f2fd8dd4ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1130926127
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130926120}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce64f4a4268594f33921beba043bff59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1241382501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1135,89 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1760883359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760883360}
+  - component: {fileID: 1760883362}
+  - component: {fileID: 1760883361}
+  m_Layer: 0
+  m_Name: Physics Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760883360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760883359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1130926125}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1760883361
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760883359}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.937887, y: -2.0266683}
+  - {x: -1.9395002, y: -1.0934523}
+  - {x: -1.7078451, y: -0.88641316}
+  - {x: -1.2234467, y: -0.7710422}
+  - {x: 1.4387856, y: -0.7982966}
+  - {x: 1.9407704, y: -1.0905939}
+  - {x: 1.9362218, y: -2.0803158}
+  - {x: 1.6899794, y: -2.2380257}
+  - {x: 1.1311294, y: -2.3993495}
+  - {x: 0.31631958, y: -2.4998987}
+  - {x: -0.34108305, y: -2.4936159}
+  - {x: -1.2381966, y: -2.3773756}
+  - {x: -1.7404102, y: -2.2116024}
+  - {x: -1.9357277, y: -2.0344586}
+--- !u!50 &1760883362
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760883359}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1915442604
 GameObject:
   m_ObjectHideFlags: 0
