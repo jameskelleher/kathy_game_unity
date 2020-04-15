@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1009434954}
   - component: {fileID: 1009434953}
   - component: {fileID: 1009434952}
+  - component: {fileID: 1009434955}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -539,6 +540,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1009434955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009434951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eddf90176c4441909a332d560c82e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gradient2:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  gradTime: 1
+  colors:
+  - {r: 0.9333334, g: 0.43529415, b: 0.1764706, a: 0}
+  - {r: 0.9450981, g: 0.5803922, b: 0.21176472, a: 0}
+  - {r: 0.9607844, g: 0.73333335, b: 0.25490198, a: 0}
+  - {r: 0.9843138, g: 0.89019614, b: 0.3019608, a: 0}
+  - {r: 0.95294124, g: 0.9921569, b: 0.3254902, a: 0}
+  - {r: 0.81568635, g: 0.9843138, b: 0.31764707, a: 0}
+  - {r: 0.6901961, g: 0.9803922, b: 0.30980393, a: 0}
+  - {r: 0.58431375, g: 0.9803922, b: 0.3019608, a: 0}
+  debug: 0
+  debugEval: 0
 --- !u!1001 &1149096847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -869,7 +923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1999356006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1022,3 +1076,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
+  debug: 0

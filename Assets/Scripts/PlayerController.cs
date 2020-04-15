@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
 
     [HideInInspector]
     public int updatedFrames = 0;
-    private int startUpdatingAt = 60;
+    private int startUpdatingAt = 5;
     #endregion
 
     #region Animation
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             // face the correct direction
             this.lastMove = GameManager.Instance.lastMove;
 
-            // set camera to follow, if it's a follow camera
+            // set camera to follow, if we're in the main scene
             GameObject MainCamera = GameObject.Find("Main Camera");
             CameraController cameraController = MainCamera.GetComponent<CameraController>();
             if (cameraController) {
