@@ -15,11 +15,7 @@ public class FountainController : MonoBehaviourPun {
     }
 
     void Update () {
-
-        if (playerInTrigger && Input.GetKeyDown ("right shift")) {
-            // play animation if triggered by player
-            photonView.RPC ("PlayAnim", RpcTarget.All);
-        }
+        CheckAction ();
     }
 
     // used in Animation to end the clip
@@ -58,6 +54,19 @@ public class FountainController : MonoBehaviourPun {
     [PunRPC]
     void PlayAnim () {
         animator.SetBool ("PlayAnimation", true);
+    }
+
+    void CheckAction () {
+        bool inputCheck = Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.RightShift);
+        if (inputCheck && playerInTrigger) {
+            bool playingAnimation = animator.GetBool ("PlayAnimation");
+            bool playerCanThrowCoin = GameManager.Instance.CheckCoinCount ();
+            if (playerCanThrowCoin && !playingAnimation) {
+                // play animation, broadcast to all players
+                photonView.RPC ("PlayAnim", RpcTarget.All);
+                GameManager.Instance.SubtractCoin ();
+            }
+        }
     }
 
 }

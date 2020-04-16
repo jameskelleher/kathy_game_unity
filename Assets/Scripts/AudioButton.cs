@@ -20,6 +20,7 @@ public class AudioButton : MonoBehaviour {
         print ("setting audio");
         GameManager.Instance.clip_ix = clip_ix;
         GameManager.Instance.SetCanMove (true);
+        GameManager.Instance.AddCoin();
 
         // TODO: fix this mess
         chooseMenu.SetActive (false);

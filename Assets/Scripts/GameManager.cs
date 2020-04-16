@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
 
     private bool canMove;
 
+    public int coinCount;
+
     #endregion
 
     #region Audio
@@ -66,6 +68,8 @@ public class GameManager : MonoBehaviour {
         // initialize for random spawn point on main map
         spawnAtX = -3;
         spawnAtY = Random.Range (-3, 0);
+
+        coinCount = 0;
     }
 
     void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
@@ -79,8 +83,8 @@ public class GameManager : MonoBehaviour {
         }
 
         if (scene.name != "Launcher") {
-            if (!string.IsNullOrEmpty(spawnPointName)) {
-                GameObject spawnPoint = GameObject.Find(spawnPointName);
+            if (!string.IsNullOrEmpty (spawnPointName)) {
+                GameObject spawnPoint = GameObject.Find (spawnPointName);
                 spawnAtX = spawnPoint.transform.position.x;
                 spawnAtY = spawnPoint.transform.position.y;
             }
@@ -118,12 +122,24 @@ public class GameManager : MonoBehaviour {
         this.canMove = canMove;
     }
 
-    public Vector2 GetSpawnPoint() {
-        return new Vector2(spawnAtX, spawnAtY);
+    public Vector2 GetSpawnPoint () {
+        return new Vector2 (spawnAtX, spawnAtY);
     }
 
-    public void SetSpawnPointName(string spawnPointName) {
+    public void SetSpawnPointName (string spawnPointName) {
         this.spawnPointName = spawnPointName;
+    }
+
+    public void AddCoin () {
+        coinCount++;
+    }
+
+    public void SubtractCoin() {
+        coinCount--;
+    }
+
+    public bool CheckCoinCount () {
+        return coinCount > 0;
     }
 
 }

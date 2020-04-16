@@ -4116,7 +4116,6 @@ GameObject:
   - component: {fileID: 1892520056}
   - component: {fileID: 1892520060}
   - component: {fileID: 1892520059}
-  - component: {fileID: 1892520062}
   - component: {fileID: 1892520061}
   m_Layer: 0
   m_Name: Joofa
@@ -4221,6 +4220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad8f87d6c3b04e47bb41b838af70f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  choosePanel: {fileID: 989820799}
 --- !u!114 &1892520060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4261,19 +4261,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9898623, y: 2.2158957}
   m_EdgeRadius: 0
---- !u!114 &1892520062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892520055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbf6026c3c9d44f5bc646523838ff37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  choosePanel: {fileID: 989820799}
 --- !u!1 &1906051740
 GameObject:
   m_ObjectHideFlags: 0

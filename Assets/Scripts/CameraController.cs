@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour {
     public BoxCollider2D boundBox;
     Vector3 minBounds;
     Vector3 maxBounds;
-    Camera camera;
+    Camera thisCamera;
     float halfHeight;
     float halfWidth;
 
@@ -19,8 +19,8 @@ public class CameraController : MonoBehaviour {
             minBounds = boundBox.bounds.min;
             maxBounds = boundBox.bounds.max;
         }
-        camera = GetComponent<Camera>();
-        halfHeight = camera.orthographicSize;
+        thisCamera = GetComponent<Camera>();
+        halfHeight = thisCamera.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
     }
 
