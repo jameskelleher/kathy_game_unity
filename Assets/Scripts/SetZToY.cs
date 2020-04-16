@@ -9,13 +9,14 @@ public class SetZToY : MonoBehaviour {
     void Start () {
         UpdatePosition();
     }
-    void Update () {
+    void LateUpdate () {
         if (debug) {
             UpdatePosition();
         }
     }
 
     private void UpdatePosition () {
+        print("updating position");
         float x = this.transform.position.x;
         float y = this.transform.position.y;
         this.transform.position = new Vector3 (x, y, y - offset);
