@@ -21,7 +21,7 @@ public class CoinUIManager : MonoBehaviour {
 
     void Update () {
         int coinCount = GameManager.Instance.coinCount;
-        if (coinCount > -1) {
+        if (coinCount > 0) {
             coinText.text = "Coins: " + coinCount;
         } else {
             coinText.text = "";

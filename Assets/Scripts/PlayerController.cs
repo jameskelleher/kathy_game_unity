@@ -78,15 +78,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         if (photonView.IsMine || !PhotonNetwork.IsConnected) {
             checkInput ();
 
-            // if (Input.GetKeyDown ("q")) {
-            //     string thisScene = SceneManager.GetActiveScene ().name;
-            //     if (thisScene == "Main") {
-            //         PhotonNetwork.LoadLevel ("Joose");
-            //     } else {
-            //         PhotonNetwork.LoadLevel ("Main");
-            //     }
-            //     PhotonNetwork.Destroy (gameObject);
-            // }
         } else if (!photonView.IsMine) {
             UpdateFromPhoton ();
         }

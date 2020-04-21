@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 
-  emote: {fileID: 0}
+  emote: {fileID: 1599092450435904539, guid: 9cbbd448dd1cc4193a62bb74d5abaf07, type: 3}
   moveSpeed: 3
   interpolationAmount: 4
   updatedFrames: 0
