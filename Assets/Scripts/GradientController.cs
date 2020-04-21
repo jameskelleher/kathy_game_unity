@@ -15,6 +15,10 @@ public class GradientController : MonoBehaviour {
 
     public Color[] colors;
 
+    public Dictionary<string, Color[]> gradientDictionary;
+
+    public Dictionary<string, string> dict;
+
     float evalAt;
 
     int incr;
