@@ -25,10 +25,8 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region Audio
-    public AudioClip[] clips;
 
-    // [HideInInspector]
-    public int clip_ix;
+    public SongDataScriptableObject songData;
 
     private AudioSource audioSource;
 
@@ -49,9 +47,6 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     void Awake () {
-
-        // set clip_ix to -1 so no audio is played in club without choosing music
-        clip_ix = -1;
 
         canMove = true;
 
@@ -75,8 +70,8 @@ public class GameManager : MonoBehaviour {
     void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         sceneName = SceneManager.GetActiveScene ().name;
 
-        if (scene.name == "Club" && clip_ix >= 0) {
-            audioSource.clip = clips[clip_ix];
+        if (scene.name == "Club" && songData != null) {
+            audioSource.clip = songData.clip;
             audioSource.Play ();
         } else {
             audioSource.Stop ();

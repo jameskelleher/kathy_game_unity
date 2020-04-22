@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 0
+  songData: {fileID: 11400000, guid: b3a7cb501d10f4878a55806236bc40cb, type: 2}
 --- !u!114 &30525683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 7
+  songData: {fileID: 11400000, guid: d7f3a2a9b8687437d809160d8d4fe520, type: 2}
 --- !u!114 &256567624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 11
+  songData: {fileID: 11400000, guid: 4bca8352ff9154906b67ef9abb9dfd4b, type: 2}
 --- !u!114 &893018809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,7 +1723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &989820800
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 9
+  songData: {fileID: 11400000, guid: 92bd18d2f71b44ef9ba7cb3eaaf4dae3, type: 2}
 --- !u!114 &1020785959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 1
+  songData: {fileID: 11400000, guid: cbbbdc31798dd4757b7c1bcc72b27b8a, type: 2}
 --- !u!114 &1338499966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2886,7 +2886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 5
+  songData: {fileID: 11400000, guid: e3bb5299845124d92bcdb4d906a18dd5, type: 2}
 --- !u!114 &1343901262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3108,7 +3108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 6
+  songData: {fileID: 11400000, guid: 0da8fc28bc2c24cd8a6a3dd85c55840c, type: 2}
 --- !u!114 &1464082172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3251,7 +3251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 3
+  songData: {fileID: 11400000, guid: e616f8f9c5d844b54979ac41581d93a3, type: 2}
 --- !u!114 &1470741017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3481,7 +3481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 4
+  songData: {fileID: 11400000, guid: 97f9717a97eda4a90825186595ca77ba, type: 2}
 --- !u!114 &1607660078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4510,7 +4510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 8
+  songData: {fileID: 11400000, guid: 4a6d33b24cc4f4bc8a3bafa41e74b432, type: 2}
 --- !u!114 &1952117483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4653,7 +4653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 2
+  songData: {fileID: 11400000, guid: c46081ac272bb49b3aa2dca863b3094f, type: 2}
 --- !u!114 &1973582416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4796,7 +4796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2b94481cb443cb8b4565cd5bbd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip_ix: 10
+  songData: {fileID: 11400000, guid: 0b21cba7780be4321af98da574c87396, type: 2}
 --- !u!114 &2090719807
 MonoBehaviour:
   m_ObjectHideFlags: 0
