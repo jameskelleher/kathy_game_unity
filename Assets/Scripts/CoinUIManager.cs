@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class CoinUIManager : MonoBehaviour {
 
+    public GameObject[] coinImages;
+
     public Text coinText;
 
     [HideInInspector]
     public static bool UIExists;
+
 
     void Start () {
         if (UIExists) {
@@ -26,5 +29,15 @@ public class CoinUIManager : MonoBehaviour {
         } else {
             coinText.text = "";
         }
+
+        foreach (GameObject coinImage in coinImages) {
+            coinImage.SetActive(false);
+        }
+
+        int imagesToActivate = Mathf.Min(coinImages.Length, coinCount);
+        for (int i = 0; i < imagesToActivate; i++) {
+            coinImages[i].SetActive(true);
+        }
     }
+
 }
