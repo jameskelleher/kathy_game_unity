@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: b6454ea5d415448078ce3c069a7b5024
+guid: 3df3d1d78abc449bdbeeb452c7c806b9
 TextureImporter:
   internalIDToNameTable:
-  - first:
-      213: -3374968213509485545
-    second: speaker 2_0
-  - first:
-      213: -9089863457953419263
-    second: speaker 2_1
-  - first:
-      213: 5073160586345044283
-    second: speaker 2_2
   - first:
       213: -8229598120360318422
     second: speaker_0
   - first:
       213: -666862027130193201
     second: speaker_1
-  - first:
-      213: -5984886456545762041
-    second: speaker_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -81,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,8 +107,8 @@ TextureImporter:
       name: speaker_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 2
+        y: 1
         width: 21
         height: 37
       alignment: 0
@@ -140,8 +128,8 @@ TextureImporter:
       name: speaker_1
       rect:
         serializedVersion: 2
-        x: 21
-        y: 0
+        x: 28
+        y: 1
         width: 21
         height: 37
       alignment: 0
@@ -153,27 +141,6 @@ TextureImporter:
       bones: []
       spriteID: fca35bef484deb6f0800000000000000
       internalID: -666862027130193201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: speaker_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 0
-        width: 21
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7052b802a7961fca0800000000000000
-      internalID: -5984886456545762041
       vertices: []
       indices: 
       edges: []
