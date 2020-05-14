@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
 
     public int coinCount;
 
+    private int maxCoinCount = 3;
+
     #endregion
 
     #region Audio
@@ -126,7 +128,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void AddCoin () {
-        coinCount++;
+        if (coinCount < maxCoinCount) coinCount++;
     }
 
     public void SubtractCoin() {
