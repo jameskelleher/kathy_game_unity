@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 384380480}
   - component: {fileID: 384380479}
   m_Layer: 5
-  m_Name: Fadeout
+  m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,8 +625,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2063055548}
+  - {fileID: 1735047218}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1939,9 +1940,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1735047218}
-  - component: {fileID: 1735047220}
+  - component: {fileID: 1735047219}
   m_Layer: 0
-  m_Name: Fadeout Manager
+  m_Name: Transition Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1955,13 +1956,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735047217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 751, y: 601, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 384380482}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1735047220
+--- !u!114 &1735047219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1973,7 +1974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30aba62dff7b4fa1b961fce9674e2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeoutImageObject: {fileID: 2063055545}
+  transitionImageObject: {fileID: 2063055545}
+  audioSourceObject: {fileID: 1576720322}
   secondsToFade: 0.5
 --- !u!1 &1851404238
 GameObject:
@@ -2299,9 +2301,8 @@ GameObject:
   - component: {fileID: 2063055548}
   - component: {fileID: 2063055547}
   - component: {fileID: 2063055546}
-  - component: {fileID: 2063055549}
   m_Layer: 5
-  m_Name: Fadeout Image
+  m_Name: Transition Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2362,19 +2363,6 @@ RectTransform:
   m_AnchoredPosition: {x: 32.7, y: 3.7}
   m_SizeDelta: {x: 3168.6, y: 2402.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2063055549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063055545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19d0ef18bbba47898c0c09915bde78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondsToFade: 0.5
 --- !u!1 &2091649570
 GameObject:
   m_ObjectHideFlags: 0

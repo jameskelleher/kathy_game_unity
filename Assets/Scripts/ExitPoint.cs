@@ -23,7 +23,7 @@ public class ExitPoint : MonoBehaviour {
                 GameManager.Instance.SetSpawnPointName(spawnPointName);
                 GameManager.Instance.lastMove = new Vector2(setLastMoveX, setLastMoveY);
 
-                fadeOutManger.GetComponent<FadeOut>().StartFadeout(loadLevel, other);                
+                fadeOutManger.GetComponent<TransitionManager>().StartFadeout(loadLevel, other);                
             }
         }
     }

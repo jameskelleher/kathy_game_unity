@@ -1410,7 +1410,7 @@ GameObject:
   - component: {fileID: 531290071}
   - component: {fileID: 531290070}
   m_Layer: 5
-  m_Name: Fadeout
+  m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3904,7 +3904,7 @@ GameObject:
   - component: {fileID: 1685813537}
   - component: {fileID: 1685813538}
   m_Layer: 5
-  m_Name: Fadeout Manager
+  m_Name: Transition Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30aba62dff7b4fa1b961fce9674e2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeoutImageObject: {fileID: 1770225751}
+  transitionImageObject: {fileID: 1770225751}
   secondsToFade: 0.5
 --- !u!1 &1701275115
 GameObject:
@@ -4031,9 +4031,8 @@ GameObject:
   - component: {fileID: 1770225752}
   - component: {fileID: 1770225755}
   - component: {fileID: 1770225754}
-  - component: {fileID: 1770225753}
   m_Layer: 5
-  m_Name: Fadeout Image
+  m_Name: Transition Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4058,19 +4057,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3.7, y: -47.3}
   m_SizeDelta: {x: 4072.5, y: 3359.9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1770225753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1770225751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19d0ef18bbba47898c0c09915bde78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondsToFade: 0.5
 --- !u!114 &1770225754
 MonoBehaviour:
   m_ObjectHideFlags: 0
