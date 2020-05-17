@@ -7,8 +7,6 @@ public class CoinUIManager : MonoBehaviour {
 
     public GameObject[] coinImages;
 
-    public Text coinText;
-
     [HideInInspector]
     public static bool UIExists;
 
@@ -24,11 +22,6 @@ public class CoinUIManager : MonoBehaviour {
 
     void Update () {
         int coinCount = GameManager.Instance.coinCount;
-        if (coinCount > 0) {
-            coinText.text = "Coins: " + coinCount;
-        } else {
-            coinText.text = "";
-        }
 
         foreach (GameObject coinImage in coinImages) {
             coinImage.SetActive(false);

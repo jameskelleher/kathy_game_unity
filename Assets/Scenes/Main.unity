@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 305521031}
   - component: {fileID: 305521030}
   m_Layer: 0
-  m_Name: Joose Transition
+  m_Name: Joose Exit Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,8 +340,7 @@ MonoBehaviour:
   spawnPointName: Spawn Point
   setLastMoveX: 0
   setLastMoveY: 0
-  fadeout: {fileID: 2063055545}
-  secondsToFade: 0.5
+  fadeOutManger: {fileID: 1735047217}
 --- !u!61 &305521031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -627,7 +626,7 @@ RectTransform:
   m_Children:
   - {fileID: 2063055548}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1044,7 +1043,7 @@ GameObject:
   - component: {fileID: 946673248}
   - component: {fileID: 946673247}
   m_Layer: 0
-  m_Name: Club Transition
+  m_Name: Club Exit Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,8 +1065,7 @@ MonoBehaviour:
   spawnPointName: Spawn Point
   setLastMoveX: 0
   setLastMoveY: 1
-  fadeout: {fileID: 2063055545}
-  secondsToFade: 0.5
+  fadeOutManger: {fileID: 1735047217}
 --- !u!61 &946673248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1932,6 +1930,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1735047217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735047218}
+  - component: {fileID: 1735047220}
+  m_Layer: 0
+  m_Name: Fadeout Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1735047218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735047217}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 751, y: 601, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1735047220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735047217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30aba62dff7b4fa1b961fce9674e2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeoutImageObject: {fileID: 2063055545}
+  secondsToFade: 0.5
 --- !u!1 &1851404238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,7 +2132,6 @@ MonoBehaviour:
   - {fileID: 427789906}
   - {fileID: 328124242}
   - {fileID: 1851404238}
-  coinText: {fileID: 1947232990}
 --- !u!1 &1935346062
 GameObject:
   m_ObjectHideFlags: 0

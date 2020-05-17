@@ -23,7 +23,7 @@ public class MusicManager : MonoBehaviour {
 
 
         time = AudioSettings.dspTime;
-        print(time);
+        // print(time);
         musicSources[0].Play();
         nextSource = 1;
 
@@ -34,10 +34,10 @@ public class MusicManager : MonoBehaviour {
         if (!musicSources[nextSource].isPlaying) {
             time = time + loopPointSeconds;
             // time = loopPointSeconds;
-            print("source:");
-            print(nextSource);
-            print("scheduled in:");
-            print(time);
+            // print("source:");
+            // print(nextSource);
+            // print("scheduled in:");
+            // print(time);
             musicSources[nextSource].PlayScheduled(time);
             nextSource = 1 - nextSource;  // switch to other AudioSource
         }
