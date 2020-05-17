@@ -2,16 +2,22 @@
 using UnityEngine;
 
 public class FountainController : MonoBehaviourPun {
+
+    public bool debugSound = false;
+
     // flag that allows player to interact with the fountain
     bool playerInTrigger;
 
     Animator animator;
+
+    AudioSource audioSource;
 
     void Start () {
         // initialize variables
         playerInTrigger = false;
 
         animator = this.GetComponent<Animator> ();
+        audioSource = this.GetComponent<AudioSource> ();
     }
 
     void Update () {
@@ -54,6 +60,7 @@ public class FountainController : MonoBehaviourPun {
     [PunRPC]
     void PlayAnim () {
         animator.SetBool ("PlayAnimation", true);
+        audioSource.PlayOneShot(audioSource.clip);
     }
 
     void CheckAction () {
@@ -61,7 +68,7 @@ public class FountainController : MonoBehaviourPun {
         if (inputCheck && playerInTrigger) {
             bool playingAnimation = animator.GetBool ("PlayAnimation");
             bool playerCanThrowCoin = GameManager.Instance.CheckCoinCount ();
-            if (playerCanThrowCoin && !playingAnimation) {
+            if ((playerCanThrowCoin && !playingAnimation) || debugSound) {
                 // play animation, broadcast to all players
                 photonView.RPC ("PlayAnim", RpcTarget.All);
                 GameManager.Instance.SubtractCoin ();
