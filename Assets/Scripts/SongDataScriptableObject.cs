@@ -7,5 +7,5 @@ public class SongDataScriptableObject : ScriptableObject {
     public string juiceFlavorName;
     public AudioClip clip;
     public Gradient clubGradient;
-
+    public float BPM;
 }
