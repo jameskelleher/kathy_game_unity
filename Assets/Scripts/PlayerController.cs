@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Photon.Pun;
+﻿using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -91,9 +89,15 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             h = Input.GetAxisRaw ("Horizontal");
             v = Input.GetAxisRaw ("Vertical");
 
+            
+
             if (Input.GetKeyDown ("space") && emote) {
-                PhotonNetwork.Instantiate(emote.name, this.gameObject.transform.position, Quaternion.identity);
-                // Instantiate (emote, this.gameObject.transform.position, Quaternion.identity);
+                string sceneName = SceneManager.GetActiveScene().name;
+                object[] data = new object[] { sceneName };
+                PhotonNetwork.Instantiate(
+                    emote.name,
+                    this.gameObject.transform.position, Quaternion.identity,
+                    0, data);
             }
 
         } else {
