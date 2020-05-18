@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionImageObject: {fileID: 1942808594}
+  audioSourceObject: {fileID: 0}
   secondsToFade: 0.5
 --- !u!1 &1009434951
 GameObject:
@@ -970,6 +971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797096752534842968, guid: 6e83e2de6401b4cc4afe0781c56b6aff,
+        type: 3}
+      propertyPath: songData
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7797096752534842971, guid: 6e83e2de6401b4cc4afe0781c56b6aff,
         type: 3}
@@ -1180,6 +1186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: speaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 550265203746910478, guid: d0648f5319bea48f2a82fc6d785a31f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Speaker
       objectReference: {fileID: 0}
     - target: {fileID: 5324466140564202808, guid: d0648f5319bea48f2a82fc6d785a31f5,
         type: 3}
@@ -1476,7 +1487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19d0ef18bbba47898c0c09915bde78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsToFade: 0.5
 --- !u!1 &2078735101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1577,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: speaker_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550265203746910478, guid: d0648f5319bea48f2a82fc6d785a31f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Speaker
       objectReference: {fileID: 0}
     - target: {fileID: 5324466140564202808, guid: d0648f5319bea48f2a82fc6d785a31f5,
         type: 3}
