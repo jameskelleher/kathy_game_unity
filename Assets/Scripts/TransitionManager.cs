@@ -20,22 +20,19 @@ public class TransitionManager : MonoBehaviour {
 
     Collider2D toDestroy;
 
-    AudioSource audioSource;
-
     void Awake () {
         transitionImage = transitionImageObject.GetComponent<Image> ();
 
         if (audioSourceObject == null) {
-            audioSource = GameManager.Instance.GetComponent<AudioSource>();
-        } else {
-            audioSource = audioSourceObject.GetComponent<AudioSource>();
+            audioSourceObject = GameManager.Instance.gameObject;
         }
 
         Color color = transitionImage.color;
         color.a = 1.0f;
         transitionImage.color = color;
 
-        audioSource.volume = 1f;
+        // start the first audio source
+        audioSourceObject.GetComponents<AudioSource>()[0].volume = 1f;
     }
 
     void Update () {
@@ -46,22 +43,23 @@ public class TransitionManager : MonoBehaviour {
             transitionImage.color = color;
 
             if (color.a <= 0f) {
-                GameManager.Instance.SetCanMove(true);
-                doFadein = false; 
+                GameManager.Instance.SetCanMove (true);
+                doFadein = false;
             }
-        }
-        else if (doFadeout) {
+        } else if (doFadeout) {
             Color color = transitionImage.color;
             float incr = Time.deltaTime / secondsToFade;
 
             color.a += incr;
             transitionImage.color = color;
 
-            audioSource.volume -= incr;
+            foreach (AudioSource as_ in audioSourceObject.GetComponents<AudioSource> ()) {
+                as_.volume -= incr;
+            }
 
             if (color.a >= 1f) DoTransition ();
         }
-        
+
     }
 
     public void StartFadeout (string loadLevel, Collider2D toDestroy) {
