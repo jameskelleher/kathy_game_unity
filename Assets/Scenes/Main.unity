@@ -2606,7 +2606,7 @@ PrefabInstance:
     - target: {fileID: 5084534642452383599, guid: 616d0479044d243629f2ee6ae2f9d5af,
         type: 3}
       propertyPath: debugSound
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7620918462101908053, guid: 616d0479044d243629f2ee6ae2f9d5af,
         type: 3}
