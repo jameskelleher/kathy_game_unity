@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhotonConnect : MonoBehaviourPunCallbacks {
+
+    public GameObject blackout;
+
+    public float secondsToFade;
+
 
     [SerializeField]
     private byte maxPlayersPerRoom = 4;
@@ -21,8 +27,8 @@ public class PhotonConnect : MonoBehaviourPunCallbacks {
 
     public override void OnConnectedToMaster () {
         Debug.Log ("we are connected to master");
-        sectionView1.SetActive (false);
-        sectionView2.SetActive (true);
+        // sectionView1.SetActive (false);
+        // sectionView2.SetActive (true);
         print("trying to join room");
         PhotonNetwork.JoinRandomRoom ();
     }
@@ -34,6 +40,14 @@ public class PhotonConnect : MonoBehaviourPunCallbacks {
 
     public override void OnJoinedRoom () {
         Debug.Log ("On Joined Room");
+
+        Image blackoutImage = blackout.GetComponent<Image>();
+
+        while (blackoutImage.color.a < 1) {
+            Color c = blackoutImage.color;
+            c.a += Time.deltaTime / secondsToFade;
+            blackoutImage.color = c;
+        }
 
         PhotonNetwork.LoadLevel("Main");
     }
