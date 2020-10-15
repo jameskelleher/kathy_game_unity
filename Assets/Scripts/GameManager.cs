@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
 
     private AudioSource audioSource;
 
+    public float clubMusicVolume = 1f;
+
     #endregion
 
     #region Scene Transition Data
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour {
 
         if (scene.name == "Club" && songData != null) {
             audioSource.clip = songData.clip;
+            audioSource.volume = clubMusicVolume;
             audioSource.Play ();
         } else {
             audioSource.Stop ();

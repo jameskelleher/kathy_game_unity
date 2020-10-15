@@ -6,7 +6,9 @@ public class TransitionManager : MonoBehaviour {
 
     public GameObject transitionImageObject;
 
-    public GameObject audioSourceObject;
+    public GameObject mainMusic;
+
+    public AudioSource transitionSound;
 
     public float secondsToFade = 0.5f;
 
@@ -23,8 +25,8 @@ public class TransitionManager : MonoBehaviour {
     void Awake () {
         transitionImage = transitionImageObject.GetComponent<Image> ();
 
-        if (audioSourceObject == null) {
-            audioSourceObject = GameManager.Instance.gameObject;
+        if (mainMusic == null) {
+            mainMusic = GameManager.Instance.gameObject;
         }
 
         Color color = transitionImage.color;
@@ -32,7 +34,7 @@ public class TransitionManager : MonoBehaviour {
         transitionImage.color = color;
 
         // start the first audio source
-        audioSourceObject.GetComponents<AudioSource>()[0].volume = 1f;
+        // mainMusic.GetComponents<AudioSource>()[0].volume = 1f;
     }
 
     void Update () {
@@ -53,7 +55,7 @@ public class TransitionManager : MonoBehaviour {
             color.a += incr;
             transitionImage.color = color;
 
-            foreach (AudioSource as_ in audioSourceObject.GetComponents<AudioSource> ()) {
+            foreach (AudioSource as_ in mainMusic.GetComponents<AudioSource> ()) {
                 as_.volume -= incr;
             }
 
@@ -70,6 +72,8 @@ public class TransitionManager : MonoBehaviour {
         toDestroy.gameObject.SetActive (false);
 
         GameManager.Instance.SetCanMove (false);
+
+        transitionSound.Play();
 
     }
 
