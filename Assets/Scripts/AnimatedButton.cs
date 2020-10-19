@@ -38,7 +38,6 @@ public class AnimatedButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         while (image.color.a < 1) {
             Color c = image.color;
             c.a += Time.deltaTime / secondsToAppear;
-            print (c.a);
             image.color = c;
             yield return null;
         }

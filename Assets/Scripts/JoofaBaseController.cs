@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class JoofaBaseController : MonoBehaviour {
     public GameObject choosePanel;
-    
+
     bool playerInTrigger;
-    
 
     void Update () {
         bool inputCheck = Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.RightShift);
@@ -27,11 +26,14 @@ public class JoofaBaseController : MonoBehaviour {
             return;
         }
 
+        print ("player entered");
+
         playerInTrigger = true;
     }
 
     void OnTriggerExit2D (Collider2D other) {
-        if (!other.CompareTag ("Player")) {
+
+        if (!other.gameObject.GetComponent<PlayerController> ()) {
             return;
         }
 
@@ -39,6 +41,8 @@ public class JoofaBaseController : MonoBehaviour {
         if (!pv.IsMine && PhotonNetwork.IsConnected) {
             return;
         }
+
+        print ("player exited");
 
         playerInTrigger = false;
     }
