@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using System;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,11 +15,14 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
     private Vector3 pos;
 
     public float moveSpeed = 3f;
-    public float interpolationAmount = 4f;
+    public float interpolationAmount = 8f;
 
     [HideInInspector]
     public int updatedFrames = 0;
-    private int startUpdatingAt = 5;
+    private readonly int startUpdatingAt = 5;
+
+    private readonly float lerp_threshold = 2f;
+
     #endregion
 
     #region Animation
@@ -89,8 +93,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             h = Input.GetAxisRaw ("Horizontal");
             v = Input.GetAxisRaw ("Vertical");
 
-            
-
             if (Input.GetKeyDown ("space") && emote) {
                 string sceneName = SceneManager.GetActiveScene().name;
                 object[] data = new object[] { sceneName };
@@ -103,7 +105,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
         } else {
             h = 0;
             v = 0;
-
         }
 
         playerMoving = false;
@@ -121,21 +122,22 @@ public class PlayerController : MonoBehaviourPun, IPunObservable {
             lastMove = new Vector2 (0f, v);
 
         }
-
         UpdateAnimator ();
-
     }
 
     void UpdateFromPhoton () {
-        if (updatedFrames < startUpdatingAt) {
-            updatedFrames++;
-        } else if (updatedFrames == startUpdatingAt) {
+        if (updatedFrames <= startUpdatingAt) {
             gameObject.transform.position = pos;
             updatedFrames++;
         } else {
-            gameObject.transform.position = Vector3.Lerp (gameObject.transform.position, pos, interpolationAmount * Time.deltaTime);
+            Vector3 diff = gameObject.transform.position - pos;
+            float magnitude = Math.Abs(diff.magnitude);
+            if (magnitude >= lerp_threshold) {
+                gameObject.transform.position = pos;
+            } else {
+                gameObject.transform.position = Vector3.Lerp (gameObject.transform.position, pos, interpolationAmount * Time.deltaTime);
+            }
             UpdateAnimator ();
-
         }
     }
 
