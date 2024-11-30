@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     public int updatedFrames = 0;
     private readonly int startUpdatingAt = 5;
 
-    private readonly float lerp_threshold = 2f;
+    private readonly float lerpThreshold = 2f;
 
     #endregion
 
@@ -153,7 +153,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         {
             Vector3 diff = gameObject.transform.position - pos;
             float magnitude = Math.Abs(diff.magnitude);
-            if (magnitude >= lerp_threshold)
+            // if ∆ pos is big, teleport instead of lerp
+            if (magnitude >= lerpThreshold)
             {
                 gameObject.transform.position = pos;
             }
